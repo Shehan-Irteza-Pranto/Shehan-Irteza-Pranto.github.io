@@ -1,0 +1,11 @@
+# Raw source materials (large originals). The website uses the optimized copies in assets/.
+/pic/
+/papers/
+/course taken materials/
+/Resume Materials/
+concat.txt
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/

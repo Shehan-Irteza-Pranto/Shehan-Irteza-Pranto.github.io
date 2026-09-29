@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research — Shehan Irteza Pranto</title>
+  <meta name="description" content="Research projects: deep learning on CRRT machine waveforms, agentic AI for clinical explanations, knowledge-graph link prediction, wearable vaping sensors, Bangla speech and human-robot interaction for healthcare.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html">Shehan Irteza Pranto</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="awards.html">Awards &amp; Talks</a></li>
+      <li><a href="teaching.html">Teaching</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="assets/pdf/Shehan_Irteza_Pranto_CV.pdf" target="_blank" rel="noopener">CV</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" data-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode">&#9789;</button>
+      <button class="icon-btn nav-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="page-title">
+    <h1>Research</h1>
+    <p class="lead">
+      My work sits where physiological signals, electronic health records and machine learning meet the bedside.
+      The through-line is building models that clinicians can act on: continuous rather than one-shot, interpretable
+      rather than opaque, and honest about when they should not be trusted.
+    </p>
+  </div>
+
+  <div class="filters" data-scope="#projects">
+    <button data-filter="all" class="active">All</button>
+    <button data-filter="clinical">Clinical AI &amp; nephrology</button>
+    <button data-filter="agentic">Agentic AI &amp; knowledge graphs</button>
+    <button data-filter="wearables">Wearables &amp; embedded</button>
+    <button data-filter="speech">Speech, NLP &amp; robotics</button>
+  </div>
+
+  <div id="projects">
+
+    <!-- ============ 1. CRRT waveforms ============ -->
+    <article class="project wide-fig" id="crrt-waveforms" data-tags="clinical">
+      <div>
+        <h3>AI-powered clinical decision support from CRRT machine data in critically ill patients with AKI</h3>
+        <div class="meta">PhD thesis &middot; UAB, 2024 – present &middot; with Jin Chen and Javier A. Neyra &middot; NIH/NIDDK R01DK133539 &middot; multi-center CRRTnet registry</div>
+        <p>
+          Critically ill patients with acute kidney injury (AKI) on continuous renal replacement therapy (CRRT) face
+          mortality above 50%, and their risk is reassessed only when labs are drawn. Meanwhile the CRRT machine at the
+          bedside streams four circuit pressures (access, filter, effluent, return) every minute, a record of the
+          patient–circuit interaction that today is used only for alarms and then discarded. This project turns that
+          stream, together with the EHR, into a continuously updated, interpretable and personalized risk signal, and
+          delivers it through a clinical decision support (CDS) dashboard.
+        </p>
+        <ul>
+          <li><strong>Data processing:</strong> align machine records to charted therapy, remove priming, downtime and sensor artifact, and segment the denoised waveforms into temporal fragments.</li>
+          <li><strong>Representation learning:</strong> transformer-based encoders, including time-series foundation models such as MOMENT, learn embeddings of minute-level pressure dynamics.</li>
+          <li><strong>Weakly supervised learning:</strong> each patient is a bag of fragments with only a patient-level label, so multiple-instance learning links fragment-level patterns to outcomes.</li>
+          <li><strong>Prediction engine:</strong> rolling predictions updated as new data arrives: mortality over the next 24–72 hours and RRT-free survival up to 28 days.</li>
+          <li><strong>Interpretability:</strong> attention weights flag the fragments that drive each prediction and tie them back to pressure patterns and clinical events, so a nephrologist can see why the risk moved.</li>
+          <li><strong>Next frontiers:</strong> extend inputs beyond pressures to pump dynamics and fluid flows, add outcomes such as major adverse kidney events, and deploy the models on the bedside machine for EHR-independent, real-time risk stratification.</li>
+        </ul>
+        <div class="stat-row">
+          <div class="stat"><b>4</b><span>pressure channels</span></div>
+          <div class="stat"><b>1,440</b><span>samples per treatment day</span></div>
+          <div class="stat"><b>24–72 h</b><span>rolling mortality horizon</span></div>
+          <div class="stat"><b>28 d</b><span>RRT-free survival horizon</span></div>
+        </div>
+        <p class="small" style="margin-bottom:6px"><strong>Outputs so far:</strong>
+          <a href="https://arxiv.org/abs/2609.13524" target="_blank" rel="noopener">rolling day-wise mortality prediction from machine pressure waveforms</a> (arXiv 2026, under review at IEEE BigData);
+          a co-first-authored review of AI across the AKI–CRRT continuum (accepted, <em>Advances in Kidney Disease and Health</em>);
+          oral presentation at ASN Kidney Week 2026; 2nd Place Poster Award at ATTIS 2026.
+        </p>
+        <div class="actions" style="display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn accent" href="publications.html">Publications</a>
+          <a class="btn" href="https://arxiv.org/abs/2609.13524" target="_blank" rel="noopener">arXiv:2609.13524</a>
+          <a class="btn" href="awards.html#attis-2026">ATTIS 2026 award (video)</a>
+        </div>
+      </div>
+      <div>
+        <div class="slider" data-interval="5500" style="--slide-h:560px">
+          <div class="slides">
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/crrt-project-overview.jpg" alt="System overview: ICU bedside and CRRT machine pressures feed an AI-powered clinical decision support system with data processing, representation learning, weakly supervised learning, a prediction engine and interpretability, ending in a CDS dashboard and clinical actions" data-lightbox="crrt" loading="lazy"></div>
+              <figcaption>Project overview: minute-level CRRT pressures stream from the bedside into an AI pipeline (data processing, transformer representation learning, weakly supervised learning, rolling prediction, interpretability) and out to a CDS dashboard showing rolling mortality risk, RRT-free survival and the contributing signals.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/crrt-signal-trajectories.jpg" alt="Four panels of real CRRT pressure traces: a steady circuit, filter clotting followed by a circuit change, treatment interruptions with missing minutes, and a multi-day course with repeated clotting cycles" data-lightbox="crrt" loading="lazy"></div>
+              <figcaption>Signal characteristics and trajectories. (A) A steady circuit: four flat, parallel channels. (B) Filter clotting: filter pressure climbs, then a circuit change. (C) Treatment interruptions leave minutes with no signal. (D) A multi-day course with repeated clotting cycles and effluent drift.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/crrt-pressure-channels.jpg" alt="Diagram of a CRRT circuit with the four pressure measurement points: access, filter, effluent and return" data-lightbox="crrt" loading="lazy"></div>
+              <figcaption>What is CRRT and its pressure channels: access pressure (drawing blood from the vascular access), filter pressure (resistance entering the hemofilter), effluent pressure (waste pathway) and return pressure (returning cleansed blood).</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/crrt-future-pipeline.jpg" alt="Roadmap from raw machine stream to deep-learning engine to bedside clinical decision support" data-lightbox="crrt" loading="lazy"></div>
+              <figcaption>Next frontiers: from retrospective analysis to a continuous AI pipeline. Untapped machine inputs beyond pressures, broader outcomes such as RRT-free survival and MAKE, and EHR-independent decision support on the bedside machine.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/ai-aki-crrt-review-fig1.jpg" alt="Overview figure: EHR and CRRT machine data feeding AI applications across the AKI-CRRT continuum" data-lightbox="crrt" loading="lazy"></div>
+              <figcaption>From our review: EHR and CRRT machine data feed AI applications across the AKI–CRRT continuum, from timely risk stratification and dynamic phenotyping to CRRT decision support and process optimization.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ 3. PharmaKG Explorer ============ -->
+    <article class="project" id="pharmakg" data-tags="agentic">
+      <div>
+        <h3>PharmaKG Explorer: conversational querying and link prediction on a drug–gene–disease knowledge graph</h3>
+        <div class="meta">UAB, 2025 &middot; knowledge-graph embeddings + LLM-to-Cypher interface &middot; sole developer</div>
+        <p>
+          An end-to-end platform for interactive knowledge-graph embedding aimed at drug-discovery hypothesis
+          generation. Curated PharmAlchemy triplets linking drugs, genes, diseases and side effects are deployed to a
+          Neo4j Aura graph, a Gradio + LangChain interface translates natural-language questions into Cypher with an
+          LLM (Gemma2-9b-It), and knowledge-graph embedding models predict missing links that researchers can test in
+          real time.
+        </p>
+        <ul>
+          <li><strong>Graph:</strong> 311,496 filtered triplets with node and relation properties, hosted on Neo4j Aura (Appendix B).</li>
+          <li><strong>Conversational querying:</strong> LLM prompting converts user questions into optimized Cypher so non-experts can explore the graph (Appendix A).</li>
+          <li><strong>Link prediction:</strong> TransE, RotatE and ComplEx compared on Hits@k and mean reciprocal rank; ComplEx performed best for tail prediction. An interactive GUI scores candidate triplets and ranks true tails on the fly (Appendix C).</li>
+        </ul>
+        <div class="stat-row">
+          <div class="stat"><b>311,496</b><span>triplets</span></div>
+          <div class="stat"><b>3</b><span>KGE models compared</span></div>
+          <div class="stat"><b>ComplEx</b><span>best MRR &amp; Hits@k</span></div>
+        </div>
+        <div class="actions" style="display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn accent" href="assets/pdf/PharmaKG_Explorer_Report.pdf" target="_blank" rel="noopener">Project report (PDF)</a>
+        </div>
+      </div>
+      <div>
+        <div class="slider" data-interval="4500" style="--slide-h:360px">
+          <div class="slides">
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/pharmakg-appendix-b-neo4j-graph.jpg" alt="Neo4j Aura view of the drug-gene-disease graph" data-lightbox="pkg" loading="lazy"></div>
+              <figcaption>Appendix B: the deployed graph on Neo4j Aura, with Drug, Gene, Disease and Side-effect nodes and their relations.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/pharmakg-appendix-c-link-prediction-gui-1.jpg" alt="KG link prediction GUI: predict tail" data-lightbox="pkg" loading="lazy"></div>
+              <figcaption>Appendix C: the link-prediction GUI. Pick an embedding model and a test triplet, and the top-k predicted tails are returned in real time.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/pharmakg-appendix-c-link-prediction-gui-2.jpg" alt="KG link prediction explorer: true tail ranks" data-lightbox="pkg" loading="lazy"></div>
+              <figcaption>Appendix C: the explorer tab computes the rank of the true tail for selected triplets, exposing model quality per query.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/pharmakg-appendix-a-conversational-interface.jpg" alt="Conversational interface with entity selectors and a natural-language query box" data-lightbox="pkg" loading="lazy"></div>
+              <figcaption>Appendix A: the conversational interface. Optional entity filters plus a free-text question are turned into Cypher by the LLM.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/pharmakg-fig2-embedding-workflow.jpg" alt="Embedding workflow overview" data-lightbox="pkg" loading="lazy"></div>
+              <figcaption>Embedding workflow: triplets to TransE / RotatE / ComplEx training, evaluation with MRR and Hits@k, and export to the GUI.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ 4. Collaborative CRRT outcomes ============ -->
+    <article class="project" id="crrt-outcomes" data-tags="clinical">
+      <div>
+        <h3>Collaborative CRRT outcomes research</h3>
+        <div class="meta">UAB Division of Nephrology &middot; 2024 – present</div>
+        <p>As part of the Neyra group I contribute data engineering and modeling to a set of multi-center CRRT studies:</p>
+        <ul>
+          <li><strong>7-day CRRT-free survival:</strong> development and external validation of a temporal machine-learning model that predicts liberation from CRRT (oral abstract at ASN Kidney Week 2025; manuscript under review at <em>Intensive Care Medicine</em>).</li>
+          <li><strong>CRRT in patients on ECMO:</strong> a multicenter cohort (n = 1,358) showing that CRRT exposure is independently associated with higher in-hospital mortality regardless of ECMO configuration or timing of initiation (<em>Journal of Critical Care</em>, 2027).</li>
+          <li><strong>Regional citrate anticoagulation:</strong> a target-trial emulation of its metabolic safety during CRRT (ASN Kidney Week 2025 poster).</li>
+          <li><strong>Data quality assurance for CRRT machine data:</strong> a systematic framework for outlier detection, smoothing and validation of machine time series (ATTIS 2025 flash talk and poster).</li>
+        </ul>
+      </div>
+      <div>
+        <div class="slider" data-interval="5000" style="--slide-h:340px">
+          <div class="slides">
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/ecmo-crrt-fig1.jpg" alt="Cohort flow of CRRT timing relative to ECMO cannulation" data-lightbox="outcomes" loading="lazy"></div>
+              <figcaption>CRRT exposure groups relative to ECMO cannulation in the multicenter ECMO cohort (Hirata, Honsell et al., J Crit Care 2027).</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/gallery/attis-2025-poster-1.jpg" alt="ATTIS 2025 poster on the data-quality assurance framework for CRRT machine data" data-lightbox="outcomes" loading="lazy"></div>
+              <figcaption>ATTIS 2025 poster: a systematic data-quality assurance framework for CRRT machine time series.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ 5. FRIENDS ============ -->
+    <article class="project" id="friends" data-tags="wearables">
+      <div>
+        <h3>FRIENDS: a wearable monitor for electronic-cigarette use</h3>
+        <div class="meta">CLAWS Lab, The University of Alabama &middot; 2022 – 2024 &middot; advisor Edward Sazonov &middot; NIH/NCI R01CA266170</div>
+        <p>
+          Vaping happens in discrete puffs, but use is still measured mostly by self-report. FRIENDS (Flexible Robust
+          Instrumentation of ENDS) is a small sensor that clips to the outside of an e-cigarette and detects the
+          near-field electromagnetic signature of atomizer current, timestamping every puff without electrical contact.
+        </p>
+        <ul>
+          <li><strong>Hardware:</strong> wrote the MSP430 firmware that detects and logs puffs, assembled surface-mount PCBs, and built device prototypes and enclosures.</li>
+          <li><strong>Software:</strong> developed the open-source <em>FRIENDS GUI</em> and puff-detection pipeline that turn on-device event logs into puff count, duration, inter-puff interval and daily-use profiles, with artifact rejection and filtering, for tobacco-use researchers.</li>
+          <li><strong>Validation:</strong> the ecosystem was benchmarked against a programmable vaping machine (11,479 machine puffs over 26 devices) and against video ground truth in adults vaping ad libitum.</li>
+        </ul>
+        <div class="actions" style="display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn accent" href="https://doi.org/10.5334/jors.613" target="_blank" rel="noopener">FRIENDS GUI, JORS 2026</a>
+          <a class="btn" href="gallery.html#claws">Lab photos</a>
+        </div>
+      </div>
+      <div>
+        <div class="slider" data-interval="4000" style="--slide-h:380px">
+          <div class="slides">
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/gallery/friends-device-attached.jpg" alt="FRIENDS monitor attached to a pod-style e-cigarette" data-lightbox="friends" loading="lazy"></div>
+              <figcaption>FRIENDS monitor in its 3D-printed enclosure, attached to a pod-style device.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/gallery/friends-pcb-battery.jpg" alt="FRIENDS PCB with lithium battery" data-lightbox="friends" loading="lazy"></div>
+              <figcaption>The assembled sensor board with its battery.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/gallery/friends-monitor-on-ends.jpg" alt="FRIENDS monitor mounted on an e-cigarette on the bench" data-lightbox="friends" loading="lazy"></div>
+              <figcaption>Bench test with the monitor mounted on an ENDS device.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/gallery/friends-pcb-batch.jpg" alt="A batch of assembled FRIENDS PCBs" data-lightbox="friends" loading="lazy"></div>
+              <figcaption>A batch of assembled boards ready for firmware.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/gallery/claws-smd-assembly-2.jpg" alt="Hand-soldering surface-mount components under a microscope" data-lightbox="friends" loading="lazy"></div>
+              <figcaption>Hand-assembling surface-mount boards at CLAWS Lab.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ 6. AI Reception / Smart Reception ============ -->
+    <article class="project" id="smart-reception" data-tags="speech">
+      <div>
+        <h3>AI Reception: a Bangla-language AI receptionist robot</h3>
+        <div class="meta">AIMS Lab, United International University &middot; 2020 – 2022 &middot; lead developer &middot; funded by the ICT Division, Bangladesh &middot; published as "Smart Reception" (EAAI 2024)</div>
+        <p>
+          Service robots for reception desks exist mostly for English. AI Reception is an end-to-end receptionist
+          framework for Bangla-speaking environments that authenticates a visitor and answers their questions by voice.
+          I built the core recognition modules and integrated them into the kiosk deployed at UIU.
+        </p>
+        <ul>
+          <li><strong>Face recognition</strong> (ArcFace) for first-step identification.</li>
+          <li><strong>Speaker recognition</strong> (MFCC features + GMM) as a second authentication factor.</li>
+          <li><strong>Bangla ASR</strong> (DeepSpeech-2 trained on LB-ASRTD) feeding a BERT-based sentence-transformer dialogue module and Bangla text-to-speech.</li>
+        </ul>
+        <div class="stat-row">
+          <div class="stat"><b>99.38%</b><span>face recognition accuracy</span></div>
+          <div class="stat"><b>9.0%</b><span>ASR word error rate</span></div>
+          <div class="stat"><b>1,664</b><span>real-world users</span></div>
+          <div class="stat"><b>&gt;75%</b><span>user satisfaction</span></div>
+        </div>
+        <div class="actions" style="display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn accent" href="https://doi.org/10.1016/j.engappai.2024.108923" target="_blank" rel="noopener">EAAI 2024</a>
+          <a class="btn" href="https://doi.org/10.1007/978-3-031-17181-9_7" target="_blank" rel="noopener">ICBBDB 2021</a>
+          <a class="btn" href="https://doi.org/10.1109/ICEEE54059.2021.9718797" target="_blank" rel="noopener">ICEEE 2021</a>
+          <a class="btn" href="assets/pdf/AI_Reception_Poster.pdf" target="_blank" rel="noopener">Poster (PDF)</a>
+        </div>
+      </div>
+      <div>
+        <div class="slider" data-interval="4500" style="--slide-h:460px">
+          <div class="slides">
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/smart-reception-kiosk.jpg" alt="The AI Reception kiosk deployed at United International University" data-lightbox="smart" loading="lazy"></div>
+              <figcaption>The dedicated standby kiosk at UIU used for task execution and system evaluation with 1,664 users.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/posters/ai-reception-poster.jpg" alt="AI Reception poster: human-robot interaction in Bengali language for better customer satisfaction" data-lightbox="smart" loading="lazy"></div>
+              <figcaption>Poster: AI Reception, human–robot interaction in Bengali language for better customer satisfaction (workflow, features and modules).</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/smart-reception-fig4-architecture.jpg" alt="Overview of the AI Reception system architecture" data-lightbox="smart" loading="lazy"></div>
+              <figcaption>System overview: face recognition, speaker recognition, ASR, question answering, TTS and database integration (EAAI 2024).</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/hri-fig1-architecture.jpg" alt="Human-robot interaction architecture with speaker recognition and conversational entity" data-lightbox="smart" loading="lazy"></div>
+              <figcaption>The earlier human–robot interaction architecture (ICEEE 2021): speaker recognition plus an artificial conversational entity with Bangla ASR and TTS.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/gallery/ai-reception-poster.jpg" alt="Shehan with the AI Reception poster" data-lightbox="smart" loading="lazy"></div>
+              <figcaption>With the AI Reception poster.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ 7. PVDoctor ============ -->
+    <article class="project" id="pvdoctor" data-tags="clinical speech">
+      <div>
+        <h3>PVDoctor: smartphone screening and monitoring of Parkinson's disease</h3>
+        <div class="meta">AIMS Lab, UIU &middot; 2020 – 2022 &middot; funded by the ICT Division, Bangladesh &middot; Top 10 of 1,051 teams, Mujib100 Idea Contest (IC4IR 2021, submission 391)</div>
+        <p>
+          Speech disorder and resting tremor are among the earliest and most common symptoms of Parkinson's disease,
+          and most patients in Bangladesh cannot reach a specialist. PVDoctor is a cloud-backed smartphone app that
+          records sustained phonation and upper-limb tremor, and returns a screening result and an MDS-UPDRS severity
+          estimate in real time.
+        </p>
+        <ul>
+          <li>Extracted 17 voice features (jitter, shimmer, MDVP measures, NHR, HNR, RPDE, DFA, PPE) and benchmarked classifiers; k-nearest neighbours performed best.</li>
+          <li>Built tremor signal processing from the phone's tri-axis accelerometer and ML models to estimate MDS-UPDRS severity.</li>
+          <li>Real-time pilot with 9 PD patients and 9 healthy participants using the deployed app; the platform spans a mobile app, a web app and a feature-extraction/ML API.</li>
+        </ul>
+        <div class="stat-row">
+          <div class="stat"><b>81.6%</b><span>sensitivity (10-fold CV)</span></div>
+          <div class="stat"><b>85.1%</b><span>specificity (10-fold CV)</span></div>
+          <div class="stat"><b>Top 10</b><span>of 1,051 teams, Mujib100</span></div>
+        </div>
+        <div class="actions" style="display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn accent" href="https://doi.org/10.1109/NER49283.2021.9441145" target="_blank" rel="noopener">IEEE/EMBS NER 2021</a>
+          <a class="btn" href="assets/pdf/PVDoctor_Poster_IC4IR2021_391.pdf" target="_blank" rel="noopener">IC4IR 2021 poster (391)</a>
+          <a class="btn" href="assets/pdf/PVDoctor_Poster.pdf" target="_blank" rel="noopener">PVDoctor poster</a>
+        </div>
+      </div>
+      <div>
+        <div class="slider" data-interval="4500" style="--slide-h:460px">
+          <div class="slides">
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/posters/pvdoctor-poster-ic4ir.jpg" alt="PVDoctor poster, IC4IR 2021 submission 391" data-lightbox="pv" loading="lazy"></div>
+              <figcaption>IC4IR 2021 / Mujib100 Idea Contest poster (submission 391): PVDoctor, a smartphone-based virtual tool for Parkinson's disease identification and monitoring.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/posters/pvdoctor-poster.jpg" alt="PVDoctor poster: cloud-based virtual doctor for Parkinson's screening and monitoring" data-lightbox="pv" loading="lazy"></div>
+              <figcaption>Poster: cloud-based virtual doctor for Parkinson's screening and monitoring, from symptoms and stages to the system architecture.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/pvdoctor-fig1-architecture.jpg" alt="PVDoctor system architecture" data-lightbox="pv" loading="lazy"></div>
+              <figcaption>System architecture: smartphone app, cloud API and clinician dashboard (NER 2021).</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/pvdoctor-fig2-flow.jpg" alt="Flow diagram of Parkinson's screening" data-lightbox="pv" loading="lazy"></div>
+              <figcaption>Screening flow from voice capture to feature extraction and classification.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ 8. AIMS TALK ============ -->
+    <article class="project" id="aims-talk" data-tags="speech">
+      <div>
+        <h3>AIMS TALK: intelligent Bangla call-center support with speaker authentication</h3>
+        <div class="meta">AIMS Lab, UIU &middot; 2021 &middot; Top 10 of 1,051 teams, Mujib100 Idea Contest</div>
+        <p>
+          A voice assistant for e-commerce customer support in Bangla. Callers are authenticated by voice (MFCC + GMM),
+          their speech is transcribed by a DeepSpeech-2 Bangla ASR model, queries are matched to personal, credential
+          and generic information databases with a paraphrase sentence transformer, and responses are spoken back with a
+          WaveNet-based TTS. Customer messages are summarized with a Seq2Seq model for operators.
+        </p>
+        <div class="actions" style="display:flex;gap:8px;flex-wrap:wrap">
+          <a class="btn accent" href="https://doi.org/10.1109/ETCCE54784.2021.9689831" target="_blank" rel="noopener">ETCCE 2021</a>
+        </div>
+      </div>
+      <div>
+        <div class="slider" data-interval="5000" style="--slide-h:360px">
+          <div class="slides">
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/figures/aims-talk-fig1-architecture.jpg" alt="System architecture of the intelligent call center" data-lightbox="aims" loading="lazy"></div>
+              <figcaption>System architecture integrating speaker recognition, ASR, interaction recognition and TTS.</figcaption>
+            </figure>
+            <figure class="slide">
+              <div class="img-wrap"><img src="assets/img/gallery/aims-mujib100-showcase.jpg" alt="AIMS Lab members in front of the Mujib100 award banner at UIU" data-lightbox="aims" loading="lazy"></div>
+              <figcaption>AIMS Lab celebrating four Mujib100 Idea Contest awards in front of United International University; AI Customer Service and PVDoctor are two of them.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ============ 9. Other ============ -->
+    <article class="project wide-fig" id="other" data-tags="speech agentic">
+      <div>
+        <h3>Other projects</h3>
+        <ul>
+          <li><strong>AIMScribe</strong> (UIU IAR, co-investigator, 2021 – 2024): designed the speech-to-text and note-structuring pipeline that turns doctor–patient conversations into structured clinical notes and localized prescriptions.</li>
+          <li><strong>BRIGHT</strong> (with Ulster University and University of Essex): co-wrote and budgeted a UK NIHR proposal on brain–robot telerehabilitation after stroke.</li>
+          <li><strong>Telemedicine during COVID-19</strong> (Research Realm, 2020): survey design and analysis of opportunities and challenges.</li>
+          <li><strong>Production chatbots</strong> (Pioneer Alpha Ltd., 2020 – 2021): built client-facing AI chatbots end to end as a machine-learning engineering intern.</li>
+        </ul>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container row">
+    <span>&copy; <span data-year>2026</span> Shehan Irteza Pranto</span>
+    <span>Figures are reproduced from my papers and posters; see <a href="publications.html">Publications</a> for sources.</span>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
